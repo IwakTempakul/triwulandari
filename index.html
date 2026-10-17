@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Helm Orders – Aba-aba Kemudi</title>
+<title>Weather &amp; Sea State – Maritime English</title>
 <style>
 :root{--sea:#0a1d2b;--deep:#12303f;--paper:#efe8d6;--brass:#d9a441;--port:#e05252;--stb:#35b27a;--mut:#9db4bf}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;height:100dvh;background:var(--sea);color:var(--paper);font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;margin:0}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:700;margin:0}
 h1{font-size:clamp(2rem,min(6vw,10vh),4.4rem);line-height:1.05}
 h2{font-size:clamp(1.4rem,min(3.4vw,5vh),2.4rem);margin-bottom:2vh;color:var(--brass)}
 p,li{font-size:clamp(.95rem,min(1.9vw,3vh),1.4rem);line-height:1.5;max-width:70ch}
@@ -16,20 +16,20 @@ p,li{font-size:clamp(.95rem,min(1.9vw,3vh),1.4rem);line-height:1.5;max-width:70c
 .slide.on{display:block}
 .mut{color:var(--mut)}
 .en{font-family:Georgia,serif;font-style:italic;color:var(--brass)}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.box{background:var(--deep);border-left:5px solid var(--brass);padding:14px 18px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.box{background:var(--deep);border-left:5px solid var(--brass);padding:12px 16px}
 .box.p{border-color:var(--port)}.box.s{border-color:var(--stb)}
-.box b{font-size:1.15em}
-.box span{display:block;font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--mut);margin-top:4px}
+.box b{font-size:clamp(1rem,min(1.9vw,3vh),1.3rem)}
+.box span{display:block;font-size:clamp(.85rem,min(1.5vw,2.5vh),1.1rem);color:var(--mut);margin-top:4px;line-height:1.4}
 table{border-collapse:collapse;width:100%;max-width:1000px}
-th,td{text-align:left;padding:min(8px,1.2vh) 12px;font-size:clamp(.85rem,min(1.7vw,2.7vh),1.25rem);border-bottom:1px solid #2b4b5c}
+th,td{text-align:left;padding:min(6px,.9vh) 10px;font-size:clamp(.8rem,min(1.6vw,2.6vh),1.2rem);border-bottom:1px solid #2b4b5c}
 th{color:var(--brass);font-weight:600}
-td:first-child{font-family:Georgia,serif;font-style:italic}
-@media(min-width:700px){td:first-child{white-space:nowrap}}
+.sm th,.sm td{font-size:clamp(.7rem,min(1.3vw,2.1vh),1rem);padding:min(4px,.5vh) 8px}
+td:first-child{font-weight:600}
 .dlg p{margin:6px 0}.dlg .o{color:var(--brass)}.dlg .h{color:var(--stb)}
 nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:18px;background:#071520;border-top:1px solid #2b4b5c}
 button{font:inherit;cursor:pointer;border:1px solid var(--brass);background:transparent;color:var(--paper);padding:7px 14px;border-radius:4px}
-button:hover{background:#1c4558}button:focus-visible{outline:3px solid var(--brass)}
+button:hover{background:#1c4558}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--brass)}
 nav button{min-width:96px}
 /* cover */
 .cover{min-height:100%;display:grid;grid-template-columns:1.4fr 1fr;gap:4vw;align-items:center}
@@ -38,18 +38,19 @@ nav button{min-width:96px}
 @media(max-aspect-ratio:1/1){.cover{grid-template-columns:1fr;align-content:center}.lg{order:-1}.lg img{max-height:26vh}}
 @media(max-height:560px){.slide{padding:2vh 4vw}}
 /* simulator */
-.sim{display:grid;gap:18px;grid-template-columns:minmax(260px,420px) 1fr;align-items:start}
+.sim{display:grid;gap:16px;grid-template-columns:minmax(0,1.35fr) minmax(250px,1fr);align-items:start}
 @media(max-width:820px){.sim{grid-template-columns:1fr}}
-.dial{max-width:min(100%,46vh);margin:0 auto;background:#06131c;border:2px solid #2b4b5c;border-radius:50%;padding:4px}
-#hd{font:700 clamp(1.5rem,4.5vh,2.2rem) Georgia,serif;text-align:center;color:var(--brass);margin:6px 0 0}
-.ro{display:flex;gap:16px;justify-content:center;font-size:1.05rem;color:var(--mut)}
-.ob{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
-.ob .P{border-color:var(--port)}.ob .S{border-color:var(--stb)}
-.ob .M{grid-column:1/3;border-color:var(--paper)}
-#log{background:#06131c;height:20vh;min-height:90px;overflow:auto;padding:8px 12px;font-size:.95rem;border:1px solid #2b4b5c}
-#log div{margin:2px 0}.lo{color:var(--brass)}.lh{color:var(--stb)}
-input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);border:1px solid var(--mut);border-radius:4px}
-#chal{min-height:2.6em;margin:8px 0;font-size:1.1rem}
+.cvw{position:relative;width:min(100%,48vh*1.78);aspect-ratio:16/9;border:2px solid #2b4b5c;margin:0 auto;background:#06131c}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rep{background:#06131c;border-left:5px solid var(--brass);padding:8px 14px;margin-top:8px;font-size:clamp(.8rem,min(1.5vw,2.4vh),1.1rem);line-height:1.45}
+.rep b{color:var(--brass)}
+#ctl{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+#ctl label{display:block;font-size:.9rem;margin:4px 0;color:var(--mut)}
+#ctl label:first-child{grid-column:1/3}
+select,input[type=range]{width:100%;font:inherit;padding:5px;background:#06131c;color:var(--paper);border:1px solid var(--mut);border-radius:4px}
+input[type=range]{padding:0;accent-color:var(--brass)}
+#qz{display:none}
+.ob{display:grid;gap:8px;margin:8px 0}
 </style>
 </head>
 <body>
@@ -59,8 +60,8 @@ input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);
     <div>
       <p style="color:var(--brass);font-weight:600;letter-spacing:.02em">SMK Negeri Pelayaran Kalimantan</p>
       <p class="mut">Maritime English · Bridge Watchkeeping</p>
-      <h1>Helm Orders<br>Aba-aba Kemudi</h1>
-      <p style="margin-top:3vh">Belajar memberi dan menjawab perintah kemudi dalam bahasa Inggris, lalu mencobanya langsung di simulator kompas.</p>
+      <h1>Weather &amp; Sea State<br>Cuaca dan Keadaan Laut</h1>
+      <p style="margin-top:3vh">Belajar menyebut dan melaporkan kondisi cuaca, angin, dan laut dalam bahasa Inggris, lalu mencobanya di simulator.</p>
       <p style="margin-top:3vh">Pengajar: <b>Tri Wulandari, S.Pd.I.</b></p>
       <p class="mut">Gunakan tombol ← → atau tombol di bawah untuk berpindah slide.</p>
     </div>
@@ -71,95 +72,85 @@ input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);
 <section class="slide">
   <h2>Tujuan Pembelajaran</h2>
   <ul>
-    <li>Menyebutkan istilah dasar kemudi: helm, rudder, port, starboard, midships, heading.</li>
-    <li>Memahami arti aba-aba sudut kemudi dan aba-aba haluan.</li>
-    <li>Menjawab perintah dengan prosedur yang benar: ulangi, laksanakan, laporkan.</li>
-    <li>Mengemudikan kapal di simulator sesuai perintah berbahasa Inggris.</li>
+    <li>Menyebutkan kosakata cuaca: langit, hujan, kabut, badai, tekanan udara.</li>
+    <li>Menjelaskan arah dan kekuatan angin, termasuk Beaufort scale 0–12.</li>
+    <li>Membedakan sea state (Douglas Sea Scale), wave, dan swell.</li>
+    <li>Menyusun dan menyampaikan weather report dalam bahasa Inggris di anjungan.</li>
   </ul>
 </section>
 
 <section class="slide">
-  <h2>Istilah Dasar</h2>
+  <h2>Kosakata Cuaca</h2>
   <div class="grid">
-    <div class="box"><b>Helm / Wheel</b><span>Roda kemudi. Orang yang mengemudi disebut <i>helmsman</i>.</span></div>
-    <div class="box"><b>Rudder</b><span>Daun kemudi di buritan. Sudut maksimum sekitar 35°.</span></div>
-    <div class="box p"><b>Port</b><span>Sisi kiri kapal (lampu merah). Kemudi ke port → haluan berbelok ke kiri.</span></div>
-    <div class="box s"><b>Starboard</b><span>Sisi kanan kapal (lampu hijau). Kemudi ke starboard → haluan berbelok ke kanan.</span></div>
-    <div class="box"><b>Midships</b><span>Daun kemudi lurus di tengah, sudut 0°.</span></div>
-    <div class="box"><b>Heading / Course</b><span>Arah haluan kapal menurut kompas, ditulis tiga digit (mis. 045°, 270°).</span></div>
+    <div class="box"><b>Sky</b><span>clear (cerah), fair (cuaca baik), cloudy (berawan), overcast (mendung penuh)</span></div>
+    <div class="box"><b>Precipitation</b><span>drizzle (gerimis), rain (hujan), showers (hujan sesaat), hail (hujan es), snow (salju)</span></div>
+    <div class="box"><b>Visibility</b><span>mist (kabut tipis), haze (kabut asap), fog (kabut tebal)</span></div>
+    <div class="box p"><b>Storms</b><span>thunderstorm (badai petir), squall (angin kencang mendadak), gale, tropical storm</span></div>
+    <div class="box s"><b>Barometer</b><span>rising (naik), falling (turun), steady (tetap). Turun cepat = cuaca buruk mendekat.</span></div>
+    <div class="box"><b>Pressure systems</b><span>high (tekanan tinggi, cuaca baik), low / depression (tekanan rendah, cuaca buruk)</span></div>
   </div>
 </section>
 
 <section class="slide">
-  <h2>Aba-aba Sudut Kemudi</h2>
-  <table>
-    <tr><th>Order</th><th>Arti</th></tr>
-    <tr><td>Port five / ten / twenty</td><td>Kemudi ke kiri 5° / 10° / 20°</td></tr>
-    <tr><td>Starboard five / ten / twenty</td><td>Kemudi ke kanan 5° / 10° / 20°</td></tr>
-    <tr><td>Hard a-port / Hard a-starboard</td><td>Kemudi penuh ke kiri / kanan (sekitar 35°)</td></tr>
-    <tr><td>Midships</td><td>Luruskan daun kemudi, 0°</td></tr>
-    <tr><td>Ease to five / ten</td><td>Kurangi sudut kemudi menjadi 5° / 10° (arah sama)</td></tr>
-  </table>
-</section>
-
-<section class="slide">
-  <h2>Aba-aba Haluan</h2>
-  <table>
-    <tr><th>Order</th><th>Arti</th></tr>
-    <tr><td>Steer course zero nine zero</td><td>Kemudikan kapal ke haluan 090°</td></tr>
-    <tr><td>Steady</td><td>Hentikan putaran, tahan haluan saat ini</td></tr>
-    <tr><td>Steady as she goes</td><td>Pertahankan haluan yang sedang dikemudikan</td></tr>
-    <tr><td>Meet her</td><td>Beri kemudi lawan untuk menahan putaran kapal</td></tr>
-    <tr><td>Nothing to port / starboard</td><td>Jangan biarkan kapal melewati haluan ke kiri / kanan</td></tr>
-  </table>
-  <p class="mut" style="margin-top:2vh">Ucapkan angka haluan satu per satu: 120° = “one two zero”, 005° = “zero zero five”.</p>
-</section>
-
-<section class="slide">
-  <h2>Prosedur Komunikasi: Perintah – Ulang – Lapor</h2>
-  <p>Helmsman wajib mengulang perintah (<i>repeat back</i>), melaksanakannya, lalu melapor setelah tercapai. Officer menutup dengan “Very well.”</p>
-  <div class="box dlg" style="margin-top:2vh;max-width:760px">
-    <p><span class="o">Officer:</span> Port twenty.</p>
-    <p><span class="h">Helmsman:</span> Port twenty, sir.</p>
-    <p><span class="h">Helmsman:</span> Twenty degrees of port rudder on, sir.</p>
-    <p><span class="o">Officer:</span> Very well. Midships.</p>
-    <p><span class="h">Helmsman:</span> Midships, sir. Rudder is amidships.</p>
-    <p><span class="o">Officer:</span> Steer course one two zero.</p>
-    <p><span class="h">Helmsman:</span> Steer one two zero, sir. … Steady on one two zero, sir.</p>
+  <h2>Wind: Arah dan Istilah</h2>
+  <div class="grid">
+    <div class="box"><b>Direction</b><span>Arah asal angin. <i>Westerly wind</i> = angin dari barat, bertiup ke timur.</span></div>
+    <div class="box"><b>Speed</b><span>Dalam <i>knots</i>. 1 knot = 1 nautical mile per jam.</span></div>
+    <div class="box"><b>Gust</b><span>Kenaikan kecepatan angin yang singkat dan tiba-tiba.</span></div>
+    <div class="box p"><b>Squall</b><span>Angin kencang mendadak selama beberapa menit, sering disertai hujan.</span></div>
+    <div class="box s"><b>Veering / Backing</b><span>Veering: arah angin berputar searah jarum jam. Backing: berlawanan arah jarum jam.</span></div>
+    <div class="box"><b>True / Apparent wind</b><span>True wind: angin sebenarnya di laut. Apparent wind: angin yang dirasakan di kapal yang bergerak.</span></div>
   </div>
 </section>
 
 <section class="slide">
-  <h2>Simulator Kemudi Kapal</h2>
+  <h2>Beaufort Scale</h2>
+  <table class="sm" id="bf"></table>
+</section>
+
+<section class="slide">
+  <h2>Sea State: Douglas Sea Scale</h2>
+  <table class="sm" id="ds"></table>
+  <p class="mut" style="margin-top:1.5vh"><b>Sea</b> = ombak yang dibangkitkan angin setempat. <b>Swell</b> = ombak panjang dari angin yang jauh, tetap ada walau angin reda. Swell: low, moderate, heavy.</p>
+</section>
+
+<section class="slide">
+  <h2>Visibility, Barometer &amp; Warnings</h2>
+  <div class="grid">
+    <div class="box"><b>Visibility</b><span>Good: over 5 nm · Moderate: 2–5 nm · Poor: 0.5–2 nm · Fog: under 0.5 nm</span></div>
+    <div class="box s"><b>Barometer</b><span>“Barometer is steady / rising / falling slowly / falling rapidly.”</span></div>
+    <div class="box p"><b>Warnings</b><span>Gale warning: Force 8–9. Storm warning: Force 10–11. Hurricane force wind warning: Force 12.</span></div>
+    <div class="box"><b>Timing</b><span>imminent: dalam 6 jam · soon: 6–12 jam · later: lebih dari 12 jam</span></div>
+  </div>
+  <p class="en" style="margin-top:2.5vh">“Gale warning. Wind westerly, force 8, soon.”</p>
+</section>
+
+<section class="slide">
+  <h2>Weather Report di Anjungan</h2>
+  <p>Urutan laporan: <b>Wind → Sea → Swell → Visibility → Weather → Barometer</b>.</p>
+  <div class="box dlg" style="margin-top:2vh;max-width:800px">
+    <p><span class="o">Master:</span> Officer of the watch, report the weather.</p>
+    <p><span class="h">OOW:</span> Wind westerly, force 5. Sea moderate, low swell. Visibility good, over five miles. Fair and dry. Barometer one zero one zero and falling slowly, sir.</p>
+    <p><span class="o">Master:</span> Very well. Call me if the visibility drops below two miles.</p>
+    <p><span class="h">OOW:</span> Call you if the visibility drops below two miles, sir.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Simulator Cuaca &amp; Sea State</h2>
   <div class="sim">
     <div>
-      <div class="dial"><svg id="cmp" viewBox="0 0 300 300" width="100%">
-        <g id="card"></g>
-        <g id="tg" style="display:none"><polygon points="150,16 144,2 156,2" fill="#d9a441" transform="translate(0,0)"/></g>
-        <path d="M150 112 L164 150 L164 196 L136 196 L136 150 Z" fill="#efe8d6" stroke="#06131c" stroke-width="2"/>
-        <polygon points="150,26 141,8 159,8" fill="#e05252"/>
-        <line x1="150" y1="30" x2="150" y2="112" stroke="#e05252" stroke-width="1" stroke-dasharray="3 4"/>
-      </svg></div>
-      <p id="hd">000°</p>
-      <div class="ro"><span>Rate of turn: <b id="rt">0.0</b>°/s</span></div>
-      <svg viewBox="0 0 200 105" width="100%" style="max-width:min(260px,26vh);display:block;margin:4px auto">
-        <path d="M20 100 A80 80 0 0 1 100 20" fill="none" stroke="#e05252" stroke-width="10"/>
-        <path d="M100 20 A80 80 0 0 1 180 100" fill="none" stroke="#35b27a" stroke-width="10"/>
-        <text x="14" y="98" fill="#efe8d6" font-size="11">PORT</text>
-        <text x="146" y="98" fill="#efe8d6" font-size="11">STBD</text>
-        <g id="nd"><line x1="100" y1="100" x2="100" y2="30" stroke="#d9a441" stroke-width="4"/></g>
-        <circle cx="100" cy="100" r="6" fill="#d9a441"/>
-        <text id="rd" x="100" y="85" fill="#efe8d6" font-size="14" text-anchor="middle" dy="-30"></text>
-      </svg>
-      <p class="ro" id="rdt" style="margin:0">Rudder: 0° (midships)</p>
+      <div class="cvw"><canvas id="cv"></canvas></div>
+      <div class="rep" id="rep"></div>
     </div>
     <div>
-      <p class="mut" style="margin-top:0">Kamu adalah officer. Beri perintah, lalu amati bagaimana helmsman dan kapal menjawab.</p>
-      <div class="ob" id="ob"></div>
-      <p style="margin:6px 0">Steer course <input id="crs" type="number" min="0" max="359" value="090" aria-label="Course"> <button id="go">Steer</button></p>
-      <div style="margin:8px 0"><button id="cb">Mulai Latihan</button> <span id="sc" class="mut"></span></div>
-      <div id="chal"></div>
-      <div id="log" aria-live="polite"></div>
+      <div id="ctl"></div>
+      <div id="qz">
+        <p id="qq" style="margin-top:0">Which Beaufort description fits this scene?</p>
+        <div class="ob" id="qo"></div>
+        <p id="qf"></p>
+      </div>
+      <p style="margin:10px 0 0"><button id="sp">🔊 Dengarkan laporan</button> <button id="qb">Mulai Tebak Cuaca</button> <span id="sc" class="mut"></span></p>
     </div>
   </div>
 </section>
@@ -167,12 +158,12 @@ input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);
 <section class="slide">
   <h2>Rangkuman &amp; Tugas</h2>
   <ul>
-    <li>Port = kiri, starboard = kanan. Sudut kemudi disebut dengan angka: five, ten, twenty.</li>
-    <li>Hard a-port / starboard = kemudi penuh. Midships = kemudi lurus.</li>
-    <li>Steady menahan haluan. Meet her menahan putaran dengan kemudi lawan.</li>
-    <li>Selalu: perintah → ulang → laksanakan → lapor → “Very well.”</li>
+    <li>Arah angin = arah asalnya. Kecepatan dalam knots, kekuatan dalam Beaufort Force 0–12.</li>
+    <li>Sea state memakai Douglas Sea Scale: calm, smooth, slight, moderate, rough, very rough, high, very high, phenomenal.</li>
+    <li>Pisahkan sea (ombak angin setempat) dari swell (ombak panjang dari jauh).</li>
+    <li>Laporan: wind, sea, swell, visibility, weather, barometer.</li>
   </ul>
-  <p class="en" style="margin-top:3vh">Tugas kelompok (3 orang: officer, helmsman, captain): praktikkan dialog dengan 5 perintah berbeda, lalu uji di simulator dan catat hasilnya.</p>
+  <p class="en" style="margin-top:3vh">Tugas berpasangan (officer dan master): atur simulator, tulis weather report-nya, lalu bacakan dengan benar.</p>
 </section>
 
 <nav>
@@ -180,78 +171,105 @@ input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);
 </nav>
 
 <script>
+const E=id=>document.getElementById(id);
 // ---- slides ----
 const sl=[...document.querySelectorAll(".slide")];let cur=0;
-function show(i){cur=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle("on",k===cur));document.getElementById("ct").textContent=(cur+1)+" / "+sl.length}
-document.getElementById("pv").onclick=()=>show(cur-1);
-document.getElementById("nx").onclick=()=>show(cur+1);
-addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return;if(e.key==="ArrowRight"||e.key==="PageDown")show(cur+1);if(e.key==="ArrowLeft"||e.key==="PageUp")show(cur-1)});
+function show(i){cur=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle("on",k===cur));E("ct").textContent=(cur+1)+" / "+sl.length}
+E("pv").onclick=()=>show(cur-1);E("nx").onclick=()=>show(cur+1);
+addEventListener("keydown",e=>{if(["INPUT","SELECT"].includes(e.target.tagName))return;if(e.key==="ArrowRight"||e.key==="PageDown")show(cur+1);if(e.key==="ArrowLeft"||e.key==="PageUp")show(cur-1)});
 show(0);
 
-// ---- compass card ----
-const pad=n=>String(Math.round(n)).padStart(3,"0");
-const NS="http://www.w3.org/2000/svg",card=document.getElementById("card");
-function el(t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;return e}
-card.appendChild(el("circle",{cx:150,cy:150,r:132,fill:"#0b2433",stroke:"#d9a441","stroke-width":2}));
-for(let i=0;i<36;i++){
-  const a=i*10,g=el("g",{transform:"rotate("+a+" 150 150)"}),big=i%3===0;
-  g.appendChild(el("line",{x1:150,y1:18,x2:150,y2:big?32:26,stroke:"#efe8d6","stroke-width":big?2:1}));
-  if(big){const L={0:"N",90:"E",180:"S",270:"W"}[a];g.appendChild(el("text",{x:150,y:52,"text-anchor":"middle",fill:L?"#d9a441":"#efe8d6","font-size":L?18:11,"font-weight":L?700:400},L||pad(a)))}
-  card.appendChild(g);
+// ---- data ----
+const BF=[["Calm","less than 1","Sea like a mirror",0],["Light air","1–3","Ripples, no foam crests",.1],["Light breeze","4–6","Small wavelets, crests do not break",.3],["Gentle breeze","7–10","Large wavelets, a few white horses",1],["Moderate breeze","11–16","Small waves, frequent white horses",1.5],["Fresh breeze","17–21","Moderate waves, many white horses",2.5],["Strong breeze","22–27","Large waves, some spray",4],["Near gale","28–33","Sea heaps up, foam in streaks",5.5],["Gale","34–40","High waves, crests break into spray",7.5],["Severe gale","41–47","High waves, dense foam, visibility affected",10],["Storm","48–55","Very high waves, sea looks white",12.5],["Violent storm","56–63","Exceptionally high waves",16],["Hurricane force","64 and over","Air filled with foam, sea white",16]];
+const WH=["0","0.1","0.3","1","1.5","2.5","4","5.5","7.5","10","12.5","16","over 14"];
+const DS=[["0","Calm (glassy)","0 m"],["1","Calm (rippled)","0–0.1 m"],["2","Smooth","0.1–0.5 m"],["3","Slight","0.5–1.25 m"],["4","Moderate","1.25–2.5 m"],["5","Rough","2.5–4 m"],["6","Very rough","4–6 m"],["7","High","6–9 m"],["8","Very high","9–14 m"],["9","Phenomenal","over 14 m"]];
+const seaIdx=h=>h<=0?0:h<=.1?1:h<=.5?2:h<=1.25?3:h<=2.5?4:h<=4?5:h<=6?6:h<=9?7:h<=14?8:9;
+function tbl(id,head,rows){E(id).innerHTML="<tr>"+head.map(h=>"<th>"+h+"</th>").join("")+"</tr>"+rows.map(r=>"<tr>"+r.map(c=>"<td>"+c+"</td>").join("")+"</tr>").join("")}
+tbl("bf",["Force","Description","Knots","Sea condition","Wave height (m)"],BF.map((b,i)=>[i,b[0],b[1],b[2],WH[i]]));
+tbl("ds",["Degree","Sea state","Wave height"],DS);
+
+// ---- controls ----
+const DIRS=["North","Northeast","East","Southeast","South","Southwest","West","Northwest"];
+const ADJ=["northerly","north-easterly","easterly","south-easterly","southerly","south-westerly","westerly","north-westerly"];
+const VI=["good, over 5 nautical miles","moderate, 2 to 5 nautical miles","poor, 0.5 to 2 nautical miles","very poor in fog, less than 0.5 nautical mile"];
+const PR=["Fair and dry","Drizzle","Rain","Thunderstorms"],SW=["No swell","Low swell","Moderate swell","Heavy swell"],TR=["steady","rising","falling slowly","falling rapidly"];
+const W={f:3,dir:6,pr:0,vi:0,sw:1,tr:0};
+const C=[["f","Wind force (Beaufort)"],["dir","Wind from",DIRS],["pr","Weather",PR],["vi","Visibility",["Good","Moderate","Poor","Fog"]],["sw","Swell",SW],["tr","Barometer",TR]];
+C.forEach(([id,lb,op])=>{const l=document.createElement("label");l.innerHTML=lb+(id==="f"?": <b id=fv></b> <span id=fn></span>":"");
+  const e=id==="f"?Object.assign(document.createElement("input"),{type:"range",min:0,max:12,value:3}):document.createElement("select");
+  if(op)op.forEach((o,i)=>e.add(new Option(o,i)));e.id=id;e.value=W[id];e.oninput=read;l.appendChild(e);E("ctl").appendChild(l)});
+function read(){Object.keys(W).forEach(k=>W[k]=+E(k).value);render()}
+function setCtl(){Object.keys(W).forEach(k=>E(k).value=W[k]);render()}
+function render(){
+  const f=W.f,b=BF[f],si=seaIdx(b[3]);
+  E("fv").textContent=f;E("fn").textContent="– "+b[0];
+  const L=[["Wind",f===0?"calm.":ADJ[W.dir]+", force "+f+" ("+b[1]+" knots)."],["Sea",DS[si][1].toLowerCase()+", wave height "+DS[si][2]+"."],["Swell",SW[W.sw].toLowerCase()+"."],["Visibility",VI[W.vi]+"."],["Weather",PR[W.pr].toLowerCase()+"."],["Barometer",(1018-f*2-[0,-3,3,9][W.tr])+" hectopascals, "+TR[W.tr]+"."]];
+  if(f>=12)L.push(["Warning","hurricane force wind warning in force."]);else if(f>=10)L.push(["Warning","storm warning in force."]);else if(f>=8)L.push(["Warning","gale warning in force."]);
+  E("rep").innerHTML=L.map(x=>"<b>"+x[0]+":</b> "+x[1]).join("<br>");
 }
-// ---- simulator ----
-const S={h:0,rot:0,rud:0,tgt:0,mode:"man",to:0,rep:null,chal:null,score:0,n:0};
-const W={5:"five",10:"ten",15:"fifteen",20:"twenty",35:"thirty-five"};
-const norm=d=>((d+540)%360)-180;
-const log=document.getElementById("log");
-function say(cls,t){const d=document.createElement("div");d.className=cls;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight}
 function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
-const OR=[["Port five",-5],["Starboard five",5],["Port ten",-10],["Starboard ten",10],["Port twenty",-20],["Starboard twenty",20],["Hard a-port",-35],["Hard a-starboard",35],["Midships",0]];
-function issue(txt,fn){
-  say("lo","Officer: "+txt+".");speak(txt);fn();say("lh","Helmsman: "+txt+", sir.");
-  if(S.chal){S.n++;if(S.chal===txt){S.score++;say("lh","✔ Benar!")}else say("lo","✘ Perintahnya: "+S.chal);nextChal()}
+E("sp").onclick=()=>speak(E("rep").textContent.replace(/hectopascals/,"hectopascals"));
+
+// ---- quiz ----
+const Q={on:false,f:0,score:0,n:0};
+const rnd=n=>Math.floor(Math.random()*n);
+function nextQ(){
+  const f=Q.f=rnd(13);W.f=f;W.dir=rnd(8);W.pr=f>=7?1+rnd(3):f>=4?rnd(3):0;W.vi=Math.min(3,(W.pr?W.pr>1?2:1:0)+(f>=9?1:0));W.sw=rnd(4);W.tr=rnd(4);render();
+  const o=[f];while(o.length<3){const x=rnd(13);if(!o.includes(x))o.push(x)}
+  o.sort(()=>Math.random()-.5);
+  E("qo").innerHTML="";o.forEach(x=>{const b=document.createElement("button");b.textContent=BF[x][0];b.onclick=()=>{Q.n++;
+    if(x===Q.f){Q.score++;E("qf").innerHTML="✔ Benar! Force "+Q.f+" – "+BF[Q.f][0]+"."}else E("qf").innerHTML="✘ Jawaban: Force "+Q.f+" – "+BF[Q.f][0]+".";
+    E("sc").textContent="Skor: "+Q.score+" / "+Q.n;nextQ()};E("qo").appendChild(b)})
 }
-function rudOrder(txt,v){issue(txt,()=>{S.mode="man";S.tgt=v;S.rep=v===0?"Rudder is amidships, sir.":"Rudder is "+(v<0?"port ":"starboard ")+(W[Math.abs(v)]||Math.abs(v))+", sir."})}
-const ob=document.getElementById("ob");
-OR.forEach(([t,v])=>{const b=document.createElement("button");b.textContent=t;b.className=v<0?"P":v>0?"S":"M";b.onclick=()=>rudOrder(t,v);ob.appendChild(b)});
-[["Steady",()=>{S.mode="steer";S.to=(S.h+S.rot*1.5+360)%360;S.rep="Steady on "+pad(S.to).split("").join(" ")+", sir."}],
- ["Meet her",()=>{if(Math.abs(S.rot)<.3)return;S.mode="man";S.tgt=S.rot>0?-10:10;S.rep="Rudder is "+(S.tgt<0?"port":"starboard")+" ten, sir."}]
-].forEach(([t,f])=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>issue(t,f);ob.appendChild(b)});
-document.getElementById("go").onclick=()=>{
-  const c=((parseInt(document.getElementById("crs").value)||0)%360+360)%360;
-  issue("Steer course "+pad(c).split("").join(" "),()=>{S.mode="steer";S.to=c;S.rep="Steady on "+pad(c).split("").join(" ")+", sir."})};
-// practice mode
-function nextChal(){const c=document.getElementById("chal"),s=document.getElementById("sc");
-  s.textContent="Skor: "+S.score+" / "+S.n;
-  if(!S.chal&&S.n===0)return;
-  S.chal=OR[Math.floor(Math.random()*OR.length)][0];
-  c.innerHTML="Captain says: <b class='en'>“"+S.chal+"!”</b> Tekan tombol yang tepat."}
-document.getElementById("cb").onclick=function(){
-  if(S.chal){S.chal=null;document.getElementById("chal").textContent="Latihan selesai. Skor akhir: "+S.score+" / "+S.n;this.textContent="Mulai Latihan";return}
-  S.score=0;S.n=0;S.chal="x";this.textContent="Hentikan Latihan";nextChal()};
-// loop
-const nd=document.getElementById("nd"),tg=document.getElementById("tg"),cmp=document.getElementById("card");
-let t0=performance.now();
-function tick(t){
-  const dt=Math.min(.1,(t-t0)/1000);t0=t;
-  const err=norm(S.to-S.h);
-  if(S.mode==="steer")S.tgt=Math.max(-25,Math.min(25,.6*err-1.5*S.rot));
-  const d=S.tgt-S.rud,m=6*dt;S.rud+=Math.abs(d)<m?d:Math.sign(d)*m;
-  S.rot+=((.35*S.rud-S.rot)/1.5)*dt;
-  S.h=(S.h+S.rot*dt+360)%360;
-  if(S.rep){const ok=S.mode==="man"?Math.abs(S.rud-S.tgt)<.4:(Math.abs(err)<1&&Math.abs(S.rot)<.3);
-    if(ok){say("lh","Helmsman: "+S.rep);S.rep=null}}
-  cmp.setAttribute("transform","rotate("+(-S.h)+" 150 150)");
-  tg.style.display=S.mode==="steer"?"":"none";
-  tg.setAttribute("transform","rotate("+(S.to-S.h)+" 150 150)");
-  nd.setAttribute("transform","rotate("+(S.rud*2)+" 100 100)");
-  document.getElementById("hd").textContent=pad(S.h)+"°";
-  document.getElementById("rt").textContent=S.rot.toFixed(1);
-  const r=Math.round(S.rud);
-  document.getElementById("rdt").textContent="Rudder: "+Math.abs(r)+"° "+(r<0?"port":r>0?"starboard":"(midships)");
-  requestAnimationFrame(tick)}
-requestAnimationFrame(tick);
-say("lo","Siap. Beri perintah kemudi, officer.");
+E("qb").onclick=function(){
+  Q.on=!Q.on;E("ctl").style.display=Q.on?"none":"grid";E("rep").style.display=Q.on?"none":"";E("qz").style.display=Q.on?"block":"none";
+  if(Q.on){Q.score=0;Q.n=0;E("qf").textContent="";E("sc").textContent="";this.textContent="Hentikan Tebak";nextQ()}
+  else{this.textContent="Mulai Tebak Cuaca";E("sc").textContent="Skor akhir: "+Q.score+" / "+Q.n;setCtl()}
+};
+render();
+
+// ---- scene ----
+const cv=E("cv"),cx=cv.getContext("2d");
+const mix=(a,b,t)=>"rgb("+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(",")+")";
+const clouds=[...Array(9)].map(()=>({x:Math.random(),y:Math.random(),s:.6+Math.random()*.8}));
+const drops=[...Array(140)].map(()=>({x:Math.random(),y:Math.random(),v:.6+Math.random()*.6}));
+let flash=0;
+function frame(t){
+  const w=cv.clientWidth,h=cv.clientHeight;
+  if(w&&h){
+    if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}
+    const f=W.f,H=BF[f][3],k=h/300,hor=h*.42,s=t/1000;
+    const dark=Math.min(1,f/12*.7+W.pr*.2+(W.vi>=2?.1:0));
+    const g=cx.createLinearGradient(0,0,0,hor);g.addColorStop(0,mix([86,168,230],[38,46,58],dark));g.addColorStop(1,mix([190,225,245],[110,120,130],dark));
+    cx.fillStyle=g;cx.fillRect(0,0,w,hor+2);
+    if(W.pr===0&&f<=5&&W.vi<=1){cx.fillStyle="#ffe08a";cx.beginPath();cx.arc(w*.8,hor*.35,22*k,0,7);cx.fill()}
+    cx.fillStyle=mix([250,250,250],[85,93,103],dark);
+    const n=Math.min(9,Math.round(2+f*.4+W.pr*1.5));
+    for(let i=0;i<n;i++){const c=clouds[i],x=(((c.x+s*(.004+f*.003))%1.3)-.15)*w,y=hor*(.12+c.y*.5);
+      for(let j=0;j<3;j++){cx.beginPath();cx.ellipse(x+j*30*k*c.s,y+(j===1?-8*k:0),40*k*c.s,16*k*c.s,0,0,7);cx.fill()}}
+    cx.fillStyle=mix([30,120,170],[18,48,66],dark);cx.fillRect(0,hor,w,h-hor);
+    const Y=(x,L)=>{const a=Math.min(h*.2,(1.2+H*2.4)*k)*(.5+L*.3),wl=(120+H*14)*k*(1+L*.3),sp=(30+f*14)*k;
+      return hor+(18+L*30)*k+a*Math.sin((x-s*sp*(1+L*.2))/wl*6.283+L*1.7)+a*.35*Math.sin(x/wl*2.2+s*.8)};
+    const layer=L=>{cx.beginPath();cx.moveTo(0,h);for(let x=0;x<=w+8;x+=8)cx.lineTo(x,Y(x,L));cx.lineTo(w,h);cx.closePath();
+      cx.fillStyle=mix([26,104,150],[8,28,42],L*.3+dark*.4);cx.fill();
+      if(L===2&&f>=4){cx.strokeStyle="rgba(255,255,255,.55)";cx.lineWidth=Math.max(1,f/6*1.6*k);cx.setLineDash([6*k,10*k]);cx.beginPath();for(let x=0;x<=w+8;x+=8){x?cx.lineTo(x,Y(x,L)):cx.moveTo(x,Y(x,L))}cx.stroke();cx.setLineDash([])}};
+    layer(0);
+    const sx=w*.42,sy=Y(sx,1),ang=Math.atan2(Y(sx+6,1)-Y(sx-6,1),12)*.8+[0,.03,.07,.13][W.sw]*Math.sin(s*1.1);
+    cx.save();cx.translate(sx,sy-3*k);cx.rotate(ang);cx.scale(k*1.3,k*1.3);
+    cx.fillStyle="#b3322b";cx.beginPath();cx.moveTo(-58,-14);cx.lineTo(62,-14);cx.lineTo(48,8);cx.lineTo(-50,8);cx.fill();
+    cx.fillStyle="#f1ece0";cx.fillRect(-30,-34,40,20);cx.fillRect(-6,-48,16,14);
+    cx.fillStyle="#d9a441";cx.fillRect(-24,-46,10,12);cx.restore();
+    layer(1);layer(2);
+    if(W.pr>0){cx.strokeStyle="rgba(205,220,235,.6)";cx.lineWidth=Math.max(1,k);cx.beginPath();
+      const cnt=[0,50,100,140][W.pr],lean=(3+f*1.2)*k;
+      for(let i=0;i<cnt;i++){const d=drops[i],x=d.x*w,y=((d.y+s*d.v*1.1)%1)*h;cx.moveTo(x,y);cx.lineTo(x-lean,y+14*k)}cx.stroke()}
+    const fa=[0,.12,.4,.75][W.vi];if(fa){cx.fillStyle="rgba(215,222,228,"+fa+")";cx.fillRect(0,0,w,h)}
+    if(W.pr===3&&Math.random()<.004)flash=1;
+    if(flash>0){cx.fillStyle="rgba(255,255,255,"+flash*.6+")";cx.fillRect(0,0,w,h);flash-=.08}
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
 </script>
 </body>
 </html>
