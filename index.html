@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helm Orders – Aba-aba Kemudi</title>
+<style>
+:root{--sea:#0a1d2b;--deep:#12303f;--paper:#efe8d6;--brass:#d9a441;--port:#e05252;--stb:#35b27a;--mut:#9db4bf}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;height:100dvh;background:var(--sea);color:var(--paper);font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;margin:0}
+h1{font-size:clamp(2rem,min(6vw,10vh),4.4rem);line-height:1.05}
+h2{font-size:clamp(1.4rem,min(3.4vw,5vh),2.4rem);margin-bottom:2vh;color:var(--brass)}
+p,li{font-size:clamp(.95rem,min(1.9vw,3vh),1.4rem);line-height:1.5;max-width:70ch}
+.slide{display:none;position:absolute;inset:0 0 56px 0;padding:4vh 5vw;overflow:auto}
+.slide.on{display:block}
+.mut{color:var(--mut)}
+.en{font-family:Georgia,serif;font-style:italic;color:var(--brass)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{background:var(--deep);border-left:5px solid var(--brass);padding:14px 18px}
+.box.p{border-color:var(--port)}.box.s{border-color:var(--stb)}
+.box b{font-size:1.15em}
+.box span{display:block;font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--mut);margin-top:4px}
+table{border-collapse:collapse;width:100%;max-width:1000px}
+th,td{text-align:left;padding:min(8px,1.2vh) 12px;font-size:clamp(.85rem,min(1.7vw,2.7vh),1.25rem);border-bottom:1px solid #2b4b5c}
+th{color:var(--brass);font-weight:600}
+td:first-child{font-family:Georgia,serif;font-style:italic}
+@media(min-width:700px){td:first-child{white-space:nowrap}}
+.dlg p{margin:6px 0}.dlg .o{color:var(--brass)}.dlg .h{color:var(--stb)}
+nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:18px;background:#071520;border-top:1px solid #2b4b5c}
+button{font:inherit;cursor:pointer;border:1px solid var(--brass);background:transparent;color:var(--paper);padding:7px 14px;border-radius:4px}
+button:hover{background:#1c4558}button:focus-visible{outline:3px solid var(--brass)}
+nav button{min-width:96px}
+/* cover */
+.cover{min-height:100%;display:grid;grid-template-columns:1.4fr 1fr;gap:4vw;align-items:center}
+.lg{display:flex;align-items:center;justify-content:center;background:var(--paper);border:4px solid var(--brass);border-radius:28px;padding:2.5vh;justify-self:center;box-shadow:0 0 0 10px #12303f}
+.lg img{display:block;max-width:100%;max-height:56vh;width:auto;height:auto;object-fit:contain}
+@media(max-aspect-ratio:1/1){.cover{grid-template-columns:1fr;align-content:center}.lg{order:-1}.lg img{max-height:26vh}}
+@media(max-height:560px){.slide{padding:2vh 4vw}}
+/* simulator */
+.sim{display:grid;gap:18px;grid-template-columns:minmax(260px,420px) 1fr;align-items:start}
+@media(max-width:820px){.sim{grid-template-columns:1fr}}
+.dial{max-width:min(100%,46vh);margin:0 auto;background:#06131c;border:2px solid #2b4b5c;border-radius:50%;padding:4px}
+#hd{font:700 clamp(1.5rem,4.5vh,2.2rem) Georgia,serif;text-align:center;color:var(--brass);margin:6px 0 0}
+.ro{display:flex;gap:16px;justify-content:center;font-size:1.05rem;color:var(--mut)}
+.ob{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.ob .P{border-color:var(--port)}.ob .S{border-color:var(--stb)}
+.ob .M{grid-column:1/3;border-color:var(--paper)}
+#log{background:#06131c;height:20vh;min-height:90px;overflow:auto;padding:8px 12px;font-size:.95rem;border:1px solid #2b4b5c}
+#log div{margin:2px 0}.lo{color:var(--brass)}.lh{color:var(--stb)}
+input{font:inherit;width:90px;padding:6px;background:#06131c;color:var(--paper);border:1px solid var(--mut);border-radius:4px}
+#chal{min-height:2.6em;margin:8px 0;font-size:1.1rem}
+</style>
+</head>
+<body>
+
+<section class="slide on">
+  <div class="cover">
+    <div>
+      <p style="color:var(--brass);font-weight:600;letter-spacing:.02em">SMK Negeri Pelayaran Kalimantan</p>
+      <p class="mut">Maritime English · Bridge Watchkeeping</p>
+      <h1>Helm Orders<br>Aba-aba Kemudi</h1>
+      <p style="margin-top:3vh">Belajar memberi dan menjawab perintah kemudi dalam bahasa Inggris, lalu mencobanya langsung di simulator kompas.</p>
+      <p style="margin-top:3vh">Pengajar: <b>Tri Wulandari, S.Pd.I.</b></p>
+      <p class="mut">Gunakan tombol ← → atau tombol di bawah untuk berpindah slide.</p>
+    </div>
+    <div class="lg"><img src="logo.png" alt="Logo SMK Negeri Pelayaran Kalimantan" onerror="this.parentNode.style.display='none'"></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Tujuan Pembelajaran</h2>
+  <ul>
+    <li>Menyebutkan istilah dasar kemudi: helm, rudder, port, starboard, midships, heading.</li>
+    <li>Memahami arti aba-aba sudut kemudi dan aba-aba haluan.</li>
+    <li>Menjawab perintah dengan prosedur yang benar: ulangi, laksanakan, laporkan.</li>
+    <li>Mengemudikan kapal di simulator sesuai perintah berbahasa Inggris.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Istilah Dasar</h2>
+  <div class="grid">
+    <div class="box"><b>Helm / Wheel</b><span>Roda kemudi. Orang yang mengemudi disebut <i>helmsman</i>.</span></div>
+    <div class="box"><b>Rudder</b><span>Daun kemudi di buritan. Sudut maksimum sekitar 35°.</span></div>
+    <div class="box p"><b>Port</b><span>Sisi kiri kapal (lampu merah). Kemudi ke port → haluan berbelok ke kiri.</span></div>
+    <div class="box s"><b>Starboard</b><span>Sisi kanan kapal (lampu hijau). Kemudi ke starboard → haluan berbelok ke kanan.</span></div>
+    <div class="box"><b>Midships</b><span>Daun kemudi lurus di tengah, sudut 0°.</span></div>
+    <div class="box"><b>Heading / Course</b><span>Arah haluan kapal menurut kompas, ditulis tiga digit (mis. 045°, 270°).</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Aba-aba Sudut Kemudi</h2>
+  <table>
+    <tr><th>Order</th><th>Arti</th></tr>
+    <tr><td>Port five / ten / twenty</td><td>Kemudi ke kiri 5° / 10° / 20°</td></tr>
+    <tr><td>Starboard five / ten / twenty</td><td>Kemudi ke kanan 5° / 10° / 20°</td></tr>
+    <tr><td>Hard a-port / Hard a-starboard</td><td>Kemudi penuh ke kiri / kanan (sekitar 35°)</td></tr>
+    <tr><td>Midships</td><td>Luruskan daun kemudi, 0°</td></tr>
+    <tr><td>Ease to five / ten</td><td>Kurangi sudut kemudi menjadi 5° / 10° (arah sama)</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h2>Aba-aba Haluan</h2>
+  <table>
+    <tr><th>Order</th><th>Arti</th></tr>
+    <tr><td>Steer course zero nine zero</td><td>Kemudikan kapal ke haluan 090°</td></tr>
+    <tr><td>Steady</td><td>Hentikan putaran, tahan haluan saat ini</td></tr>
+    <tr><td>Steady as she goes</td><td>Pertahankan haluan yang sedang dikemudikan</td></tr>
+    <tr><td>Meet her</td><td>Beri kemudi lawan untuk menahan putaran kapal</td></tr>
+    <tr><td>Nothing to port / starboard</td><td>Jangan biarkan kapal melewati haluan ke kiri / kanan</td></tr>
+  </table>
+  <p class="mut" style="margin-top:2vh">Ucapkan angka haluan satu per satu: 120° = “one two zero”, 005° = “zero zero five”.</p>
+</section>
+
+<section class="slide">
+  <h2>Prosedur Komunikasi: Perintah – Ulang – Lapor</h2>
+  <p>Helmsman wajib mengulang perintah (<i>repeat back</i>), melaksanakannya, lalu melapor setelah tercapai. Officer menutup dengan “Very well.”</p>
+  <div class="box dlg" style="margin-top:2vh;max-width:760px">
+    <p><span class="o">Officer:</span> Port twenty.</p>
+    <p><span class="h">Helmsman:</span> Port twenty, sir.</p>
+    <p><span class="h">Helmsman:</span> Twenty degrees of port rudder on, sir.</p>
+    <p><span class="o">Officer:</span> Very well. Midships.</p>
+    <p><span class="h">Helmsman:</span> Midships, sir. Rudder is amidships.</p>
+    <p><span class="o">Officer:</span> Steer course one two zero.</p>
+    <p><span class="h">Helmsman:</span> Steer one two zero, sir. … Steady on one two zero, sir.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Simulator Kemudi Kapal</h2>
+  <div class="sim">
+    <div>
+      <div class="dial"><svg id="cmp" viewBox="0 0 300 300" width="100%">
+        <g id="card"></g>
+        <g id="tg" style="display:none"><polygon points="150,16 144,2 156,2" fill="#d9a441" transform="translate(0,0)"/></g>
+        <path d="M150 112 L164 150 L164 196 L136 196 L136 150 Z" fill="#efe8d6" stroke="#06131c" stroke-width="2"/>
+        <polygon points="150,26 141,8 159,8" fill="#e05252"/>
+        <line x1="150" y1="30" x2="150" y2="112" stroke="#e05252" stroke-width="1" stroke-dasharray="3 4"/>
+      </svg></div>
+      <p id="hd">000°</p>
+      <div class="ro"><span>Rate of turn: <b id="rt">0.0</b>°/s</span></div>
+      <svg viewBox="0 0 200 105" width="100%" style="max-width:min(260px,26vh);display:block;margin:4px auto">
+        <path d="M20 100 A80 80 0 0 1 100 20" fill="none" stroke="#e05252" stroke-width="10"/>
+        <path d="M100 20 A80 80 0 0 1 180 100" fill="none" stroke="#35b27a" stroke-width="10"/>
+        <text x="14" y="98" fill="#efe8d6" font-size="11">PORT</text>
+        <text x="146" y="98" fill="#efe8d6" font-size="11">STBD</text>
+        <g id="nd"><line x1="100" y1="100" x2="100" y2="30" stroke="#d9a441" stroke-width="4"/></g>
+        <circle cx="100" cy="100" r="6" fill="#d9a441"/>
+        <text id="rd" x="100" y="85" fill="#efe8d6" font-size="14" text-anchor="middle" dy="-30"></text>
+      </svg>
+      <p class="ro" id="rdt" style="margin:0">Rudder: 0° (midships)</p>
+    </div>
+    <div>
+      <p class="mut" style="margin-top:0">Kamu adalah officer. Beri perintah, lalu amati bagaimana helmsman dan kapal menjawab.</p>
+      <div class="ob" id="ob"></div>
+      <p style="margin:6px 0">Steer course <input id="crs" type="number" min="0" max="359" value="090" aria-label="Course"> <button id="go">Steer</button></p>
+      <div style="margin:8px 0"><button id="cb">Mulai Latihan</button> <span id="sc" class="mut"></span></div>
+      <div id="chal"></div>
+      <div id="log" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Rangkuman &amp; Tugas</h2>
+  <ul>
+    <li>Port = kiri, starboard = kanan. Sudut kemudi disebut dengan angka: five, ten, twenty.</li>
+    <li>Hard a-port / starboard = kemudi penuh. Midships = kemudi lurus.</li>
+    <li>Steady menahan haluan. Meet her menahan putaran dengan kemudi lawan.</li>
+    <li>Selalu: perintah → ulang → laksanakan → lapor → “Very well.”</li>
+  </ul>
+  <p class="en" style="margin-top:3vh">Tugas kelompok (3 orang: officer, helmsman, captain): praktikkan dialog dengan 5 perintah berbeda, lalu uji di simulator dan catat hasilnya.</p>
+</section>
+
+<nav>
+  <button id="pv">← Prev</button><span id="ct" class="mut"></span><button id="nx">Next →</button>
+</nav>
+
+<script>
+// ---- slides ----
+const sl=[...document.querySelectorAll(".slide")];let cur=0;
+function show(i){cur=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle("on",k===cur));document.getElementById("ct").textContent=(cur+1)+" / "+sl.length}
+document.getElementById("pv").onclick=()=>show(cur-1);
+document.getElementById("nx").onclick=()=>show(cur+1);
+addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return;if(e.key==="ArrowRight"||e.key==="PageDown")show(cur+1);if(e.key==="ArrowLeft"||e.key==="PageUp")show(cur-1)});
+show(0);
+
+// ---- compass card ----
+const pad=n=>String(Math.round(n)).padStart(3,"0");
+const NS="http://www.w3.org/2000/svg",card=document.getElementById("card");
+function el(t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;return e}
+card.appendChild(el("circle",{cx:150,cy:150,r:132,fill:"#0b2433",stroke:"#d9a441","stroke-width":2}));
+for(let i=0;i<36;i++){
+  const a=i*10,g=el("g",{transform:"rotate("+a+" 150 150)"}),big=i%3===0;
+  g.appendChild(el("line",{x1:150,y1:18,x2:150,y2:big?32:26,stroke:"#efe8d6","stroke-width":big?2:1}));
+  if(big){const L={0:"N",90:"E",180:"S",270:"W"}[a];g.appendChild(el("text",{x:150,y:52,"text-anchor":"middle",fill:L?"#d9a441":"#efe8d6","font-size":L?18:11,"font-weight":L?700:400},L||pad(a)))}
+  card.appendChild(g);
+}
+// ---- simulator ----
+const S={h:0,rot:0,rud:0,tgt:0,mode:"man",to:0,rep:null,chal:null,score:0,n:0};
+const W={5:"five",10:"ten",15:"fifteen",20:"twenty",35:"thirty-five"};
+const norm=d=>((d+540)%360)-180;
+const log=document.getElementById("log");
+function say(cls,t){const d=document.createElement("div");d.className=cls;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight}
+function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+const OR=[["Port five",-5],["Starboard five",5],["Port ten",-10],["Starboard ten",10],["Port twenty",-20],["Starboard twenty",20],["Hard a-port",-35],["Hard a-starboard",35],["Midships",0]];
+function issue(txt,fn){
+  say("lo","Officer: "+txt+".");speak(txt);fn();say("lh","Helmsman: "+txt+", sir.");
+  if(S.chal){S.n++;if(S.chal===txt){S.score++;say("lh","✔ Benar!")}else say("lo","✘ Perintahnya: "+S.chal);nextChal()}
+}
+function rudOrder(txt,v){issue(txt,()=>{S.mode="man";S.tgt=v;S.rep=v===0?"Rudder is amidships, sir.":"Rudder is "+(v<0?"port ":"starboard ")+(W[Math.abs(v)]||Math.abs(v))+", sir."})}
+const ob=document.getElementById("ob");
+OR.forEach(([t,v])=>{const b=document.createElement("button");b.textContent=t;b.className=v<0?"P":v>0?"S":"M";b.onclick=()=>rudOrder(t,v);ob.appendChild(b)});
+[["Steady",()=>{S.mode="steer";S.to=(S.h+S.rot*1.5+360)%360;S.rep="Steady on "+pad(S.to).split("").join(" ")+", sir."}],
+ ["Meet her",()=>{if(Math.abs(S.rot)<.3)return;S.mode="man";S.tgt=S.rot>0?-10:10;S.rep="Rudder is "+(S.tgt<0?"port":"starboard")+" ten, sir."}]
+].forEach(([t,f])=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>issue(t,f);ob.appendChild(b)});
+document.getElementById("go").onclick=()=>{
+  const c=((parseInt(document.getElementById("crs").value)||0)%360+360)%360;
+  issue("Steer course "+pad(c).split("").join(" "),()=>{S.mode="steer";S.to=c;S.rep="Steady on "+pad(c).split("").join(" ")+", sir."})};
+// practice mode
+function nextChal(){const c=document.getElementById("chal"),s=document.getElementById("sc");
+  s.textContent="Skor: "+S.score+" / "+S.n;
+  if(!S.chal&&S.n===0)return;
+  S.chal=OR[Math.floor(Math.random()*OR.length)][0];
+  c.innerHTML="Captain says: <b class='en'>“"+S.chal+"!”</b> Tekan tombol yang tepat."}
+document.getElementById("cb").onclick=function(){
+  if(S.chal){S.chal=null;document.getElementById("chal").textContent="Latihan selesai. Skor akhir: "+S.score+" / "+S.n;this.textContent="Mulai Latihan";return}
+  S.score=0;S.n=0;S.chal="x";this.textContent="Hentikan Latihan";nextChal()};
+// loop
+const nd=document.getElementById("nd"),tg=document.getElementById("tg"),cmp=document.getElementById("card");
+let t0=performance.now();
+function tick(t){
+  const dt=Math.min(.1,(t-t0)/1000);t0=t;
+  const err=norm(S.to-S.h);
+  if(S.mode==="steer")S.tgt=Math.max(-25,Math.min(25,.6*err-1.5*S.rot));
+  const d=S.tgt-S.rud,m=6*dt;S.rud+=Math.abs(d)<m?d:Math.sign(d)*m;
+  S.rot+=((.35*S.rud-S.rot)/1.5)*dt;
+  S.h=(S.h+S.rot*dt+360)%360;
+  if(S.rep){const ok=S.mode==="man"?Math.abs(S.rud-S.tgt)<.4:(Math.abs(err)<1&&Math.abs(S.rot)<.3);
+    if(ok){say("lh","Helmsman: "+S.rep);S.rep=null}}
+  cmp.setAttribute("transform","rotate("+(-S.h)+" 150 150)");
+  tg.style.display=S.mode==="steer"?"":"none";
+  tg.setAttribute("transform","rotate("+(S.to-S.h)+" 150 150)");
+  nd.setAttribute("transform","rotate("+(S.rud*2)+" 100 100)");
+  document.getElementById("hd").textContent=pad(S.h)+"°";
+  document.getElementById("rt").textContent=S.rot.toFixed(1);
+  const r=Math.round(S.rud);
+  document.getElementById("rdt").textContent="Rudder: "+Math.abs(r)+"° "+(r<0?"port":r>0?"starboard":"(midships)");
+  requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+say("lo","Siap. Beri perintah kemudi, officer.");
+</script>
+</body>
+</html>
